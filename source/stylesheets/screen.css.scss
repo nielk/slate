@@ -74,6 +74,7 @@ html, body {
   // This is the logo at the top of the ToC
   .logo {
     display: block;
+    margin: 0 auto;
     max-width: 100%;
     margin-bottom: $logo-margin;
   }
@@ -83,7 +84,7 @@ html, body {
 
     input {
       background: $nav-bg;
-      border-width: 0 0 1px 0;
+      border-width: 0 0 0 0;
       border-color: $search-box-border-color;
       padding: 6px 0 6px 20px;
       box-sizing: border-box;
@@ -171,7 +172,7 @@ html, body {
 
   .toc-h2 {
     padding-left: $nav-padding + $nav-indent;
-    font-size: 12px;
+    font-size: 13px;
   }
 
   .toc-footer {
@@ -326,6 +327,10 @@ html, body {
     clear: both;
   }
 
+  a {
+    color: $code-bg
+  }
+
   &>h1, &>h2, &>h3, &>h4, &>h5, &>h6, &>p, &>table, &>ul, &>ol, &>aside, &>dl {
     margin-right: $examples-width;
     padding: 0 $main-padding;
@@ -347,13 +352,14 @@ html, body {
   h1 {
     @extend %header-font;
     font-size: 25px;
+    font-weight: 600;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     margin-bottom: $h1-margin-bottom;
     margin-top: 2em;
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
-    background-color: #fdfdfd;
+    // border-top: 1px solid #ccc;
+    // border-bottom: 1px solid #ccc;
+    // background-color: #fdfdfd;
   }
 
   h1:first-child, div:first-child + h1 {
@@ -364,9 +370,9 @@ html, body {
   h2 {
     @extend %header-font;
     font-size: 19px;
+    font-weight: 600;
     margin-top: 4em;
     margin-bottom: 0;
-    border-top: 1px solid #ccc;
     padding-top: 1.2em;
     padding-bottom: 1.2em;
     background-image: linear-gradient(to bottom, rgba(#fff, 0.2), rgba(#fff, 0));
