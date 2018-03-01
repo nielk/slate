@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
+    <title>Abyssa router</title>
 
     <style>
       .highlight table td { padding: 5px; }
@@ -199,9 +199,11 @@
     <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
     <link href="stylesheets/print.css" rel="stylesheet" media="print" />
       <script src="javascripts/all.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;javascript&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -211,9 +213,6 @@
     <div class="toc-wrapper">
       <img src="images/logo.png" class="logo" alt="Logo" />
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
               <a href="#" data-language-name="javascript">javascript</a>
         </div>
         <div class="search">
@@ -222,281 +221,460 @@
         <ul class="search-results"></ul>
       <div id="toc" class="toc-list-h1">
           <li>
-            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
-          </li>
-          <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
-          </li>
-          <li>
-            <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="introduction">Introduction</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="Get All Kittens">Get All Kittens</a>
+                    <a href="#what-is-abyssa" class="toc-h2 toc-link" data-title="what-is-abyssa">What is Abyssa?</a>
                   </li>
                   <li>
-                    <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Get a Specific Kitten">Get a Specific Kitten</a>
+                    <a href="#abyssa-is-versatile" class="toc-h2 toc-link" data-title="abyssa-is-versatile">Abyssa is versatile</a>
                   </li>
                   <li>
-                    <a href="#delete-a-specific-kitten" class="toc-h2 toc-link" data-title="Delete a Specific Kitten">Delete a Specific Kitten</a>
+                    <a href="#abyssa-is-performant" class="toc-h2 toc-link" data-title="abyssa-is-performant">Abyssa is performant</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+            <a href="#installation" class="toc-h1 toc-link" data-title="installation">Installation</a>
+          </li>
+          <li>
+            <a href="#transitions" class="toc-h1 toc-link" data-title="transitions">Transitions</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#example" class="toc-h2 toc-link" data-title="example">Example</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#api" class="toc-h1 toc-link" data-title="api">API</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#router" class="toc-h2 toc-link" data-title="router">Router</a>
+                  </li>
+                  <li>
+                    <a href="#state" class="toc-h2 toc-link" data-title="state">State</a>
+                  </li>
+                  <li>
+                    <a href="#statewithparams" class="toc-h2 toc-link" data-title="statewithparams">StateWithParams</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#anchor-interception" class="toc-h1 toc-link" data-title="anchor-interception">Anchor interception</a>
+          </li>
+          <li>
+            <a href="#code-examples" class="toc-h1 toc-link" data-title="code-examples">Code examples</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#demo-app" class="toc-h2 toc-link" data-title="demo-app">Demo app</a>
+                  </li>
+                  <li>
+                    <a href="#abyssa-react" class="toc-h2 toc-link" data-title="abyssa-react">Abyssa + React</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#cookbook" class="toc-h1 toc-link" data-title="cookbook">Cookbook</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#removing-router-lt-gt-state-circular-dependencies" class="toc-h2 toc-link" data-title="removing-router-lt-gt-state-circular-dependencies">Removing router &lt;-&gt; state circular dependencies</a>
+                  </li>
+                  <li>
+                    <a href="#central-router-modular-states" class="toc-h2 toc-link" data-title="central-router-modular-states">Central router, modular states</a>
+                  </li>
+                  <li>
+                    <a href="#handling-the-change-of-some-params-differently-in-update" class="toc-h2 toc-link" data-title="handling-the-change-of-some-params-differently-in-code-update-code">Handling the change of some params differently in <code>update</code></a>
+                  </li>
+                  <li>
+                    <a href="#integrating-with-react" class="toc-h2 toc-link" data-title="integrating-with-react">Integrating with React</a>
+                  </li>
+              </ul>
           </li>
       </div>
-        <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
-            <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
-        </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<p>Hierarchical router library for single page applications.</p>
+<h2 id='what-is-abyssa'>What is Abyssa?</h2>
+<p>Abyssa is a stateful, hierarchical client side router.<br>
+What does stateful mean? It means all states are not equal and abyssa knows how to go from one state to another efficiently.<br>
+Abyssa does only one thing: Routing.<br>
+Upon entering a state, it can be rendered using any technique: Direct DOM manipulation, client or server side templating, with the help of a binding library, etc.
+A state can even be abstract and not render anything.</p>
+<h2 id='abyssa-is-versatile'>Abyssa is versatile</h2>
+<p>Abyssa can be used like a traditional stateless url -&gt; callback router:  </p>
+<pre class="highlight javascript tab-javascript"><code>
+<span class="kd">var</span> <span class="nx">show</span> <span class="o">=</span> <span class="p">{</span> <span class="na">enter</span><span class="p">:</span> <span class="nx">articleEnter</span> <span class="p">};</span>
+<span class="kd">var</span> <span class="nx">edit</span> <span class="o">=</span> <span class="p">{</span> <span class="na">enter</span><span class="p">:</span> <span class="nx">articleEditEnter</span> <span class="p">};</span>
 
-<p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
-
-<p>This example API documentation page was created with <a href="https://github.com/lord/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
-<h1 id='authentication'>Authentication</h1>
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
+<span class="nx">Router</span><span class="p">({</span>
+  <span class="na">article</span><span class="p">:</span> <span class="nx">State</span><span class="p">(</span><span class="s1">'articles/:id'</span><span class="p">,</span> <span class="nx">show</span><span class="p">),</span>
+  <span class="na">articleEdit</span><span class="p">:</span> <span class="nx">State</span><span class="p">(</span><span class="s1">'articles/:id/edit'</span><span class="p">,</span> <span class="nx">edit</span><span class="p">)</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">init</span><span class="p">();</span>
 </code></pre>
-<blockquote>
-<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
-</blockquote>
+<p>Or we can leverage abyssa&#39;s state machine nature and nest states when it serves us:  </p>
+<pre class="highlight javascript tab-javascript"><code>
+<span class="kd">var</span> <span class="nx">article</span> <span class="o">=</span> <span class="p">{</span> <span class="na">enter</span><span class="p">:</span> <span class="nx">loadArticle</span> <span class="p">};</span>
+<span class="kd">var</span> <span class="nx">show</span> <span class="o">=</span> <span class="p">{</span> <span class="na">enter</span><span class="p">:</span> <span class="nx">articleEnter</span><span class="p">,</span> <span class="na">exit</span><span class="p">:</span> <span class="nx">articleExit</span> <span class="p">};</span>
+<span class="kd">var</span> <span class="nx">edit</span> <span class="o">=</span> <span class="p">{</span> <span class="na">enter</span><span class="p">:</span> <span class="nx">articleEditEnter</span><span class="p">,</span> <span class="na">exit</span><span class="p">:</span> <span class="nx">articleEditExit</span> <span class="p">};</span>
 
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
-
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-
-<p><code>Authorization: meowmeowmeow</code></p>
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
+<span class="nx">Router</span><span class="p">({</span>
+  <span class="na">article</span><span class="p">:</span> <span class="nx">State</span><span class="p">(</span><span class="s1">'articles/:id'</span><span class="p">,</span> <span class="nx">article</span><span class="p">,</span> <span class="p">{</span>
+    <span class="na">show</span><span class="p">:</span> <span class="nx">State</span><span class="p">(</span><span class="s1">''</span><span class="p">,</span> <span class="nx">show</span><span class="p">),</span>
+    <span class="na">edit</span><span class="p">:</span> <span class="nx">State</span><span class="p">(</span><span class="s1">'edit'</span><span class="p">,</span> <span class="nx">edit</span><span class="p">)</span>
+  <span class="p">})</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">init</span><span class="p">();</span>
 </code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves all kittens.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
-</tr>
-<tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
-</tr>
-</tbody></table>
+<p>Now we can freely switch between viewing and editing an article without any pause because the article data is loaded in the parent state and can be shared in the child states.</p>
+<h2 id='abyssa-is-performant'>Abyssa is performant</h2>
+<p>What is the main advantage of stateful routers? Performance: Less redraws, less wasteful data loading, less wasteful setUp logic, etc.<br>
+When going from a state A to a state B, as far as a stateless router is concerned, everything has to be done from scratch even if the two states are closely related. Trying to optimize state transitions by hand is going to be awkward and lead to an explosion of custom state variables. On the other hand, abyssa make it simple to reason about what makes each state different and thus compute the minimum set of changes needed to transition from state A to state B.  </p>
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<p><img src="http://i171.photobucket.com/albums/u320/boubiyeah/abyssaTransitionPic_zps1315690d.png" alt="transition-min-changes" /></p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<p>Here, Abyssa will simply swap the red bit for the green bit. Why should everything be redrawn? It&#39;s slower and the software would lose all the state implicitly stored in the previous DOM.</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
+<p>Read this excellent blog post for more information: <a href="http://codebrief.com/2012/03/make-the-most-of-your-routes/">Make the most of your routes</a></p>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<p>Note: With the emergence of VDOM approaches, using abyssa as a stateful router has less of an impact, as VDOM diffing/patching will usually take care of good enough performances. Also, a component based view library can handle hierarchical data loading and caching.</p>
+
+<p><a name="installation"></a></p>
+<h1 id='installation'>Installation</h1>
+<p><strong>Using abyssa as a commonJS/browserify module</strong></p>
+<pre class="highlight plaintext"><code>npm install abyssa
+...
+var Router = require('abyssa').Router;
+
 </code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
+<p><strong>Using abyssa as a global</strong><br>
+Use one of the provided prebuilt files in the target folder.</p>
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
-</tr>
-</tbody></table>
-<h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<p><a name="transitions"></a></p>
+<h1 id='transitions'>Transitions</h1><h2 id='example'>Example</h2>
+<p><img src="http://i171.photobucket.com/albums/u320/boubiyeah/states1_zps7eb66af6.png" alt="transition-example" /></p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<ul>
+<li>There can be several root states. The router doesn&#39;t enforce the use of a single, top level state like some state machine implementations do.<br></li>
+</ul>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -X DELETE
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
+<p>The transition from the state <code>A1</code> to the state <code>B</code> would consist of the following steps:  </p>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<p><strong>A1 exit -&gt; PA exit -&gt; B enter</strong></p>
+
+<p><a name="api"></a></p>
+<h1 id='api'>API</h1>
+<p><a name="api-router"></a></p>
+<h2 id='router'>Router</h2><h3 id='configure-options-object-router'>configure (options: Object): Router</h3>
+<p>Configure the router before its initialization.
+The available options are:<br>
+- enableLogs: Whether (debug and error) console logs should be enabled. Defaults to false.<br>
+- interceptAnchors: Whether anchor mousedown/clicks should be intercepted and trigger a state change. Defaults to true.<br>
+- notFound: The State to enter when no state matching the current path query or name could be found. This is a string representing the fullName of an existing state. Defaults to null.<br>
+- urlSync: How the router state and the URL should be kept in sync. Defaults to &#39;history&#39;. Possible values are:<br>
+  - &#39;history&#39;: The router uses the history pushState API.
+  - &#39;hash&#39;: The router uses the hash part of the URL for all browsers.
+- hashPrefix: Customize the hash separator. Set to &#39;!&#39; in order to have a hashbang like &#39;/#!/&#39;. Defaults to empty string.</p>
+<h3 id='init-initstate-string-initparams-object-router'>init (initState: String, initParams: Object): Router</h3>
+<p>Initialize the router.<br>
+The router will immediately initiate a transition to, in order of priority:<br>
+1) The init state passed as an argument (mostly useful for testing and debugging)<br>
+2) The state captured by the current URL  </p>
+<h3 id='addstate-name-string-state-object-router'>addState (name: String, state: Object): Router</h3>
+<p>Add a new root state to the router.<br>
+Returns the router to allow chaining.<br>
+The state Object is a simple POJO. See <a href="#api-state">State</a></p>
+<h3 id='transitionto-statename-string-params-object-acc-object-void'>transitionTo (stateName: String, params: Object, acc: Object): void</h3><h3 id='transitionto-pathquery-string-acc-object-void'>transitionTo (pathQuery: String, acc: Object): void</h3>
+<p>Request a programmatic, synchronous state change.<br>
+While you can change state programmatically, the more idiomatic way to do it is sometimes using anchor tags with the proper href.  </p>
+
+<p>Two notations are supported:<br>
+<code>javascript
+// Fully qualified state name
+transitionTo(&#39;my.target.state&#39;, { id: 33, filter: &#39;desc&#39; })  
+// Path and (optionally) query
+transitionTo(&#39;target/33?filter=desc&#39;)  
+</code>
+The <code>acc</code> parameter can be used to specify an object that will be passed up then down every state involved in the transition.<br>
+It can be used to share information from a state with the subsequent states.</p>
+<h3 id='backto-statename-string-defaultparams-object-acc-object-void'>backTo (stateName: String, defaultParams: Object, acc: Object): void</h3>
+<p>Attempt to navigate to &#39;stateName&#39; with its previous params or<br>
+fallback to the defaultParams parameter if the state was never entered.</p>
+<h3 id='link-statename-string-params-object-string'>link (stateName: String, params: Object): String</h3>
+<p>Compute a link that can be used in anchors&#39; href attributes<br>
+from a state name and a list of params, a.k.a reverse routing.</p>
+<h3 id='previous-statewithparams'>previous(): <a href="#api-stateWithParams">StateWithParams</a></h3>
+<p>Returns the previous state of the router or null if the router is still in its initial state.</p>
+<h3 id='current-statewithparams'>current(): <a href="#api-stateWithParams">StateWithParams</a></h3>
+<p>Returns the current state of the router.</p>
+<h3 id='findstate-optionsorfullname-state'>findState(optionsOrFullName): State</h3>
+<p>Returns the state object that was built with the given options Object or that has the given fullName String.<br>
+Returns undefined if the state doesn&#39;t exist.</p>
+<h3 id='isfirsttransition-boolean'>isFirstTransition(): Boolean</h3>
+<p>Returns whether the router is executing its first transition.</p>
+<h3 id='replaceparams-params-object-void'>replaceParams(params: Object): void</h3>
+<p>Replaces the current state&#39;s params in the history with new params.<br>
+Note: <code>replaceParams</code> only works with <code>urlSync</code> = <code>history</code>.<br>
+The state is NOT exited/re-entered. That means you must store this params state outside the router to know
+what to render. This functionality is useful when some url changes shouldn&#39;t re-render the whole application, nor create a separate entry in the browser history. (ex: scroll position, active filters, whether a popup is visible)</p>
+<h3 id='paramsdiff-object'>paramsDiff(): Object</h3>
+<p>Returns the diff between the current params and the previous ones
+```javascript
+var diff = router.paramsDiff();</p>
+
+<p>{
+  update: { // params staying but being updated
+    id: true
+  },
+  enter: { // params making an appearance
+    q: true
+  },
+  exit: { // params now gone
+    section: true
+  },
+  all: { // all param changes
+    id: true,
+    q: true,
+    section: true
+  }
+}
+```</p>
+
+<p>The paramsDiff is also accessible from the current state.  </p>
+<h3 id='events'>Events</h3>
+<p>All event handlers receive the current state and the old state as arguments (of type <a href="#api-stateWithParams">StateWithParams</a>).</p>
+<h4 id='router-on-39-started-39-handler'>router.on(&#39;started&#39;, handler)</h4><h4 id='router-on-39-ended-39-handler'>router.on(&#39;ended&#39;, handler)</h4>
+<p>To remove the event handler, attach a null/undefined callback.</p>
+
+<p><a name="api-state"></a></p>
+<h2 id='state'>State</h2><h3 id='basics'>Basics</h3>
+<p>States are simple POJOs used to build the router and represent path segments of an url (indeed, the router only matches routes against states&#39; paths).  </p>
+
+<p>A state can also own a list of query params: While all states will be able to read these params, isolated changes to these
+will only trigger a transition up to the state owning them (it will be exited and re-entered). The same applies to dynamic query params.<br>
+How much you decompose your applications into states is completely up to you.</p>
+<h3 id='properties'>Properties</h3>
+<p>A state is really just an object with an <code>uri</code> property. Optionally, the following properties can be specified:<br>
+<code>enter</code>, <code>exit</code>, <code>update</code>, <code>data</code>, <code>children</code>.</p>
+<h4 id='uri-string'>uri: String</h4>
+<p>The path segment this state owns. Can also contain a query string. Ex: <code>uri: &#39;articles/:id?filter&#39;</code></p>
+<h4 id='enter-params-object-value-any-router-router-void'>enter (params: Object, value: Any, router: Router): void</h4>
+<p>Specify a function that should be called when the state is entered.<br>
+The params are the dynamic params (path and query alike in one object) of the current url.<br>
+This is where you could render the data into the DOM or do some general work once for many child states.</p>
+<h4 id='exit-params-object-value-any-router-router-void'>exit (params: Object, value: Any, router: Router): void</h4>
+<p>Same as the enter function but called when the state is exited.
+This is where you could teardown any state or side effects introduced by the enter function, if needed.</p>
+<h4 id='update-params-object-value-any-router-router-void'>update (params: Object, value: Any, router: Router): void</h4>
+<p>The update callback is called when the router is moving to the same state as the current state, but with different path/query params.<br>
+Specifying an update callback can be seen as an optimization preventing doing wasteful work in exit/enter, e.g removing and adding the same DOM elements that were already present in the document before the state change.  </p>
+<pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">router</span> <span class="o">=</span> <span class="nx">router</span><span class="p">({</span>
+  <span class="na">people</span><span class="p">:</span> <span class="nx">State</span><span class="p">(</span><span class="s1">'people/:id'</span><span class="p">,</span> <span class="p">{</span>
+    <span class="na">enter</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{},</span>
+    <span class="na">update</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{},</span>
+    <span class="na">exit</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{},</span>
+  <span class="p">})</span>
+<span class="p">}).</span><span class="nx">init</span><span class="p">(</span><span class="s1">'people/33'</span><span class="p">);</span>
 </code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint deletes a specific kitten.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the kitten to delete</td>
-</tr>
-</tbody></table>
-<h1 id='errors'>Errors</h1>
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
+<p>During init, <code>enter</code> will be called.  </p>
 
-<p>The Kittn API uses the following error codes:</p>
+<p>Later, if the router transitions from &#39;people/33&#39; to &#39;people/44&#39;, only <code>update</code> will be called. If an <code>update</code> callback wasn&#39;t specified,
+<code>exit</code> then <code>enter</code> would have been called in succession.</p>
+<h4 id='data-object'>data: Object</h4>
+<p>Custom data properties can be specified declaratively when building the state.</p>
+<h3 id='children-object'>children: Object</h3>
+<p>A map of child names to states.</p>
+<h3 id='usage-examples'>Usage examples</h3><h4 id='construction'>Construction</h4>
+<p>Given a state represented by the path &quot;articles&quot;, with a child state named &quot;item&quot; represented by the dynamic path &quot;id&quot;.<br>
+When the router is in the state &quot;articles.item&quot; with the id param equal to 33, the browser url is http://yourdomain/articles/33.<br>
+There are at least 3 ways to build such a router; It is advised to build the router centrally, even if the state definitions are
+located in their own modules.</p>
 
-<table><thead>
-<tr>
-<th>Error Code</th>
-<th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>400</td>
-<td>Bad Request -- Your request sucks.</td>
-</tr>
-<tr>
-<td>401</td>
-<td>Unauthorized -- Your API key is wrong.</td>
-</tr>
-<tr>
-<td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
-</tr>
-<tr>
-<td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
-</tr>
-<tr>
-<td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
-</tr>
-<tr>
-<td>500</td>
-<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
-</tr>
-<tr>
-<td>503</td>
-<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
-</tr>
-</tbody></table>
+<p>Using pojos
+<code>javascript
+var router = Router({
+  articles: {
+    uri: &#39;articles&#39;,
+    children: {
+      item: {
+        uri: &#39;:id&#39;
+      }
+    }
+  }
+}).init();
+</code>
+Or using the <code>State</code> factory shorthand:<br>
+<code>javascript
+var router = Router({
+  articles: State(&#39;articles&#39;, {}, {
+    item: State(&#39;:id&#39;, {})
+}).init();
+</code></p>
+
+<p>Or using the imperative form:<br>
+```javascript
+var router = Router();
+var articles = State(&#39;articles&#39;);  </p>
+
+<p>articles.children.item = State(&#39;:id&#39;);
+router.addState(articles);
+router.init();
+```</p>
+<h4 id='pathless-states'>Pathless states</h4>
+<p>A state represented by the path &quot;articles&quot; with a path-less child state named &quot;show&quot;<br>
+When the router is in the state &quot;articles.show&quot;, the browser url is http://yourdomain/articles</p>
+<pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">state</span> <span class="o">=</span> <span class="nx">State</span><span class="p">(</span><span class="s1">'articles'</span><span class="p">,</span> <span class="p">{},</span> <span class="p">{</span>
+  <span class="na">show</span><span class="p">:</span> <span class="nx">State</span><span class="p">(</span><span class="s1">''</span><span class="p">)</span>
+<span class="p">});</span>
+
+<span class="nx">router</span><span class="p">.</span><span class="nx">addState</span><span class="p">(</span><span class="s1">'articles'</span><span class="p">,</span> <span class="nx">state</span><span class="p">);</span>
+</code></pre><h4 id='query-strings'>Query strings</h4>
+<p>Now the articles state also tells us it owns the query param named &#39;filter&#39; in its state hierarchy.<br>
+This means that any isolated change to the filter query param (meaning the filter was added, removed or changed but the path remained the same) is going to make that state exit and re-enter so that it can process the new filter value. If you do not specify which state owns the query param, all states above the currently selected state are exited and reentered, which can be less efficient.  Also, Enumerating the possible query strings is mandatory if you want these to appear when using reverse routing or name-based state changes.
+```javascript
+var state = State(&#39;articles?filter&#39;, {}, {
+  show: State(&#39;&#39;)
+});</p>
+<pre class="highlight plaintext"><code>
+#### Rest segments
+Additionaly, the last path segment of a state can end with a `*` to match any number of extra path segments:
+
+```javascript
+State('path/:rest*')
+
+// All these state changes will result in that state being entered:  
+
+// router.transitionTo('path'); // params.rest === undefined
+// router.transitionTo('path/other'); // params.rest === 'other'
+// router.transitionTo('path/other/yetAnother'); // params.rest === 'other/yetAnother'
+</code></pre>
+<p><a name="api-stateWithParams"></a></p>
+<h2 id='statewithparams'>StateWithParams</h2>
+<p><code>StateWithParams</code> objects are returned from <code>router.previous()</code>, <code>router.current()</code> and passed in event handlers.  </p>
+<h3 id='uri-string-2'>uri: String</h3>
+<p>The current uri associated with this state</p>
+<h3 id='params-object'>params: Object</h3>
+<p>The path and query params set for this state</p>
+<h3 id='name-string'>name: String</h3>
+<p>The (local) name of the state</p>
+<h3 id='fullname-string'>fullName: String</h3>
+<p>The fully qualified, unique name of the state</p>
+<h3 id='isin-fullname-string-boolean'>isIn(fullName: String): Boolean</h3>
+<p>Returns whether this state or any of its parents has the given fullName.</p>
+
+<p><a name="anchor-interception"></a></p>
+<h1 id='anchor-interception'>Anchor interception</h1>
+<p>By default, the router will intercept anchor clicks and automatically navigate to a state if some conditions are met (left button pressed, href on the same domain, etc).<br>
+This behavior can be turned off by using the corresponding router <a href="#api-router">configuration setting</a><br>
+You may want to turn off anchor interception on mobile optimised apps and perform manual router.transitionTo() calls on touch/pointer events.  </p>
+
+<p>You can also intercept mousedown events instead of the usual click events by using a data-attribute as follow:<br>
+<code>
+&lt;a data-nav=&quot;mousedown&quot; href=&quot;/&quot;&gt;
+</code></p>
+
+<p>If a same-domain link should not be intercepted by Abyssa, you can use:<br>
+<code>
+&lt;a data-nav=&quot;ignore&quot; href=&quot;/&quot;&gt;
+</code></p>
+
+<p><a name="code-examples"></a></p>
+<h1 id='code-examples'>Code examples</h1><h2 id='demo-app'>Demo app</h2>
+<p>Demo: <a href="http://abyssa-async.herokuapp.com/">Abyssa demo async</a><br>
+Source: <a href="https://github.com/AlexGalays/abyssa-demo/tree/async/client">Abyssa demo async source</a>  </p>
+<h2 id='abyssa-react'>Abyssa + React</h2>
+<p><a href="http://jsfiddle.net/ku88Lcju/">JSFiddle</a></p>
+
+<p><a name="cookbook"></a></p>
+<h1 id='cookbook'>Cookbook</h1>
+<p><a name="removingCircularDeps"></a></p>
+<h2 id='removing-router-lt-gt-state-circular-dependencies'>Removing router &lt;-&gt; state circular dependencies</h2>
+<p>States must be added to the router but states also often need to call methods on the router, for instance to create href links.
+This creates circular dependencies which are annoying when using primitive module systems such as CommonJS&#39;.<br>
+To break that circular dependency, simply require the api object instead of the router in your states:  </p>
+<pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'abyssa'</span><span class="p">).</span><span class="nx">api</span><span class="p">;</span>
+
+<span class="c1">// then api.link('state', { id: 123 })</span>
+
+</code></pre>
+<p><a name="centralRouter"></a></p>
+<h2 id='central-router-modular-states'>Central router, modular states</h2>
+<p>It is much easier to reason about an application and its routes if the various uris can be all be read in one place instead of being spread all over the code base. However, states should be modularized for the sake of easier maintenance and separation of concerns. Here&#39;s how it might be achieved with CommonJS modules:  </p>
+<pre class="highlight javascript tab-javascript"><code>
+<span class="c1">// router.js</span>
+
+<span class="kd">var</span> <span class="nx">Router</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'abyssa'</span><span class="p">).</span><span class="nx">Router</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">State</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'abyssa'</span><span class="p">).</span><span class="nx">State</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">index</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'./index'</span><span class="p">),</span>
+    <span class="nx">articles</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'./articles'</span><span class="p">),</span>
+    <span class="nx">articlesDetail</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'./articles/detail'</span><span class="p">),</span>
+    <span class="nx">articlesDetailEdit</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'./articles/detailEdit'</span><span class="p">);</span>
+
+<span class="nx">Router</span><span class="p">({</span>
+
+  <span class="na">index</span><span class="p">:</span> <span class="nx">State</span><span class="p">(</span><span class="s1">''</span><span class="p">,</span> <span class="nx">index</span><span class="p">),</span>
+
+  <span class="na">articles</span><span class="p">:</span> <span class="nx">State</span><span class="p">(</span><span class="s1">'articles'</span><span class="p">,</span> <span class="nx">articles</span><span class="p">,</span> <span class="p">{</span>
+    <span class="na">articlesDetail</span><span class="p">:</span> <span class="nx">State</span><span class="p">(</span><span class="s1">':id/show'</span><span class="p">,</span> <span class="nx">articlesDetail</span><span class="p">),</span>
+    <span class="na">articlesDetailEdit</span><span class="p">:</span> <span class="nx">State</span><span class="p">(</span><span class="s1">':id/edit'</span><span class="p">,</span> <span class="nx">articlesDetailEdit</span><span class="p">),</span>
+  <span class="p">})</span>
+
+<span class="p">}).</span><span class="nx">init</span><span class="p">();</span>
+
+
+<span class="c1">// index.js</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">enter</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'index entered'</span><span class="p">);</span>
+  <span class="p">},</span>
+  <span class="na">exit</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'index exited'</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+
+</code></pre>
+<p><a name="updateParamChanges"></a></p>
+<h2 id='handling-the-change-of-some-params-differently-in-update'>Handling the change of some params differently in <code>update</code></h2>
+<p><code>update</code> is an optional hook that will be called whenever the router moves to the same state but with updated path/query params.</p>
+
+<p>However, not all params are equal: A change in the path param representing the resource id may induce more work than the change of some secondary query param.</p>
+
+<p>Example of a conditional update:  </p>
+<pre class="highlight javascript tab-javascript"><code>
+<span class="kd">var</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'abyssa'</span><span class="p">).</span><span class="nx">api</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">state</span> <span class="o">=</span> <span class="nx">State</span><span class="p">({</span>
+  <span class="na">enter</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">loadResourceForId</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
+  <span class="p">},</span>
+
+  <span class="na">update</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">diff</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">paramsDiff</span><span class="p">();</span>
+
+    <span class="c1">// The id was changed</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">diff</span><span class="p">.</span><span class="nx">update</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">loadResourceForId</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="c1">// Some other params were changed</span>
+    <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">filterInPlace</span><span class="p">(</span><span class="nx">params</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+</code></pre>
+<p><a name="integratingWithReact"></a></p>
+<h2 id='integrating-with-react'>Integrating with React</h2>
+<p>Check this <a href="https://gist.github.com/AlexGalays/f3ee01ff940defd147700c2725dd3976">gist</a> to get a <code>ReactState</code> that can be used to automatically insert React children based on routing:</p>
 
       </div>
       <div class="dark-box">
-          <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
-                <a href="#" data-language-name="javascript">javascript</a>
-          </div>
       </div>
     </div>
   </body>
